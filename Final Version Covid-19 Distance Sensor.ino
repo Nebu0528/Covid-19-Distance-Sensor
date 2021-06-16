@@ -69,6 +69,7 @@ void loop() {
   delay (200);
   lcd.print(distance);
 
+ //If the distance is more than 250cm , the green LED will turn on and display a "Safe" message on the LCD.
   if (distance>250){
     digitalWrite(greenLed, HIGH); 
     digitalWrite(yellowLed, LOW);
@@ -76,6 +77,7 @@ void loop() {
     lcd.print("cm Safe        ");
   }
 
+//If the distance is less 250cm but more than 200cm, the yellow LED will turn on and display a "Caution' message on the LCD.
   if (distance<250 && distance>200){
     digitalWrite(yellowLed, HIGH);
     digitalWrite(greenLed, LOW);
@@ -84,6 +86,7 @@ void loop() {
     
   }
 
+//If the distance is less than 200cm, the red LED will turn on, display a "Warning" sign on the LCD and activate to piezo to notify the other person that they are not within a safe distance.
   if (distance<200){
     digitalWrite(redLed, HIGH);
     digitalWrite(greenLed, LOW);
@@ -91,4 +94,3 @@ void loop() {
     lcd.print("cm Warning   ");
     tone(piezo, 200, 500);
   }
-}
