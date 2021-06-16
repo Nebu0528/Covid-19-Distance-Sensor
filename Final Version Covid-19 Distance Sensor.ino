@@ -68,8 +68,8 @@ void loop() {
   distance=(duration/2) / 29.2;
   delay (200);
   lcd.print(distance);
-
- //If the distance is more than 250cm , the green LED will turn on and display a "Safe" message on the LCD.
+  
+//If the distance is more than 250cm , the green LED will turn on and display a "Safe" message on the LCD.
   if (distance>250){
     digitalWrite(greenLed, HIGH); 
     digitalWrite(yellowLed, LOW);
@@ -94,3 +94,4 @@ void loop() {
     lcd.print("cm Warning   ");
     tone(piezo, 200, 500);
   }
+}
